@@ -62,12 +62,19 @@ class MainWindow(Screen):
             sm.transition.direction = "down"
             sm.current = "home"
 
+    def topdiscoutnsBtn(self):
+        sm.current = 'topdiscounts'
+
 
 class MyAccount(Screen):
     def on_touch_move(self, touch):
         if touch.dy > 0:
             sm.transition.direction = "up"
             sm.current = "home"
+
+
+class TopDiscounts(Screen):
+    pass
 
 
 class WindowManager(ScreenManager):
@@ -82,7 +89,7 @@ kv = Builder.load_file("winkme.kv")
 sm = WindowManager()
 
 screens = [HomePage(name="home"), LoginWindow(name="login"), CreateAccWindow(name="create"), MainWindow(name="main"),
-           MyAccount(name="myacc")]
+           MyAccount(name="myacc"), TopDiscounts(name="topdiscounts")]
 
 for screen in screens:
     sm.add_widget(screen)
