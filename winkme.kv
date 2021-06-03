@@ -394,6 +394,7 @@
                 size_hint: .2, .05
                 background_normal: ""
                 background_color: 1, .26, 0, 1
+                on_press: root.EditDataBtn()
 
             Button:
                 text: "Delete Account"
@@ -401,6 +402,97 @@
                 size_hint: .4, .05
                 background_normal: ""
                 background_color: 1, .26, 0, 1
+
+<EditMyAccount>:
+    name: "editmyaccount"
+    RelativeLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: self.size
+
+        Label:
+            text: "Edit Data"
+            pos_hint: {"center_x": .46, "center_y": .9}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(40)
+            color: 1, .26, 0, 1
+
+        Label:
+            text: "Full Name"
+            pos_hint: {"center_x": .2, "center_y": .8}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        TextInput:
+            pos_hint: {"center_x": 0.6, "center_y": 0.8}
+            size_hint: .4, .05
+            hint_text: "Ted Mosby"
+            multiline: False
+
+        Label:
+            text: "Email"
+            pos_hint: {"center_x": .2, "center_y": .7}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        TextInput:
+            pos_hint: {"center_x": 0.6, "center_y": 0.7}
+            size_hint: .4, .05
+            hint_text: "ted@mosby.com"
+            multiline: False
+
+        Label:
+            text: "Date Of Birth"
+            pos_hint: {"center_x": .2, "center_y": .6}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        TextInput:
+            pos_hint: {"center_x": 0.6, "center_y": 0.6}
+            size_hint: .4, .05
+            hint_text: "11/11/1990"
+            input_filter: 'int'
+            multiline: False
+
+        Label:
+            text: "Age "
+            pos_hint: {"center_x": .2, "center_y": .5}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        TextInput:
+            pos_hint: {"center_x": 0.6, "center_y": 0.5}
+            size_hint: .4, .05
+            input_filter: 'int'
+            hint_text: "31"
+            multiline: False
+
+        Label:
+            text: "Gender"
+            pos_hint: {"center_x": .2, "center_y": .4}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        Spinner:
+            id: spinner_id
+            size_hint: .4, .05
+            pos_hint: {"center_x": .6, "center_y": .4}
+            text: "Gender"
+            values: ["Male", "Female"]
+            background_normal: ""
+            background_color: [1, .26, 0, 1]
+            on_text: root.spinner_clicked(spinner_id.text)
+
+
+
+
 
 <TopDiscounts>:
     name: "topdiscounts"

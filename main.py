@@ -4,11 +4,11 @@ from kivy.lang import Builder
 from kivy.uix.carousel import Carousel
 from kivy.uix.image import AsyncImage
 from kivy.uix.pagelayout import PageLayout
-
 # Config.set('graphics', 'width', '414')
 # Config.set('graphics', 'height', '736')
 from kivy.core.window import Window
 from kivy.properties import NumericProperty, StringProperty
+from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.app import App
 from kivy.uix.relativelayout import RelativeLayout
@@ -72,6 +72,14 @@ class MyAccount(Screen):
             sm.transition.direction = "up"
             sm.current = "home"
 
+    def EditDataBtn(self):
+        sm.current = "editmyaccount"
+
+
+class EditMyAccount(Screen):
+    def spinner_clicked(self, value):
+        self.ids.spinner_id.text = value
+
 
 class TopDiscounts(Screen):
     pass
@@ -89,7 +97,7 @@ kv = Builder.load_file("winkme.kv")
 sm = WindowManager()
 
 screens = [HomePage(name="home"), LoginWindow(name="login"), CreateAccWindow(name="create"), MainWindow(name="main"),
-           MyAccount(name="myacc"), TopDiscounts(name="topdiscounts")]
+           MyAccount(name="myacc"), TopDiscounts(name="topdiscounts"), EditMyAccount(name="editmyaccount")]
 
 for screen in screens:
     sm.add_widget(screen)
