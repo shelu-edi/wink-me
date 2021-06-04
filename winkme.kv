@@ -243,6 +243,15 @@
                 source: 'images/top discounts-edited/vans_shoes2.jpg'
             Image:
                 source: 'images/top discounts-edited/vans_tee1.jpg'
+            Button:
+                background_normal: 'images/top discounts-edited/vans_shoes2.jpg'
+                background_down: "images/top discounts-edited/vans_shoes2.jpg"
+                pos_hint: {"x":.1, "center_y":0.5}
+                size_hint_x: .8
+                size_hint_y: 0.5
+                # size_hint: .15, .08
+                # pos_hint: {"center_x": 0.45, "center_y": 0.08}
+                on_press: root.Slide_btn()
 
         Label:
             text: "Top Stores"
@@ -490,8 +499,39 @@
             background_color: [1, .26, 0, 1]
             on_text: root.spinner_clicked(spinner_id.text)
 
+        Label:
+            text: "More Data "
+            pos_hint: {"center_x": .2, "center_y": .3}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
 
+        TextInput:
+            pos_hint: {"center_x": 0.6, "center_y": 0.3}
+            size_hint: .4, .05
+            hint_text: "more data"
+            multiline: False
 
+        Label:
+            text: "More Data "
+            pos_hint: {"center_x": .2, "center_y": .2}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        TextInput:
+            pos_hint: {"center_x": 0.6, "center_y": 0.2}
+            size_hint: .4, .05
+            hint_text: "more data"
+            multiline: False
+
+        Button:
+            text: "Save"
+            pos_hint: {"center_x": .6, "center_y": .1}
+            size_hint: .2, .05
+            background_normal: ""
+            background_color: 1, .26, 0, 1
+            on_press: root.save_data_btn()
 
 
 <TopDiscounts>:
@@ -504,3 +544,76 @@
             font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
             font_size: dp(40)
             color: 1, .26, 0, 1
+
+<ScrollView1>:
+    ScrollView:
+        ItemStack:
+
+
+
+<ItemStack@GridLayout>:
+    cols: 1
+
+    ItemWindow:
+    ItemWindow:
+    ItemWindow:
+    ItemWindow:
+    ItemWindow:
+
+<ItemWindow>:
+    vans_shoes2: vans_shoes2
+    vans_shoes1: vans_shoes1
+    name: "itemwindow"
+
+    RelativeLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: self.size
+
+        Label:
+            text: "Store 1"
+            pos_hint: {"center_x": 0.46, "center_y": .9}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(40)
+            color: 1, .26, 0, 1
+
+        Image:
+            id: vans_shoes2
+            source: 'images/top discounts-edited/vans_shoes2.jpg'
+            pos_hint: {"center_x": .25, "center_y": .6}
+            size_hint: .5, .5
+
+        Label:
+            text: "Item 1"
+            id: vans_shoes1
+            pos_hint: {"center_x": 0.6, "center_y": 0.75}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(25)
+            color: 1, .26, 0, 1
+
+        Label:
+            text: "Price 1"
+            pos_hint: {"center_x": 0.6, "center_y": 0.7}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        Label:
+            text: "desc 1"
+            pos_hint: {"center_x": 0.6, "center_y": 0.65}
+            font_name: "fonts/josefin-sans/JosefinSans-Bold.ttf"
+            font_size: dp(20)
+            color: 1, .26, 0, 1
+
+        Button:
+            text: "Get Promo Code"
+            pos_hint: {"center_x": .68, "center_y": .6}
+            size_hint: .3, .05
+            background_normal: ""
+            background_color: 1, .26, 0, 1
+            on_press: root.promo_code_1()
+
+
+
